@@ -1,4 +1,4 @@
-
+import jwt from 'jsonwebtoken';
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
@@ -48,6 +48,34 @@ app.post('/register', async (req, res) => {
         
 //         )
 // });
+// app.post('/login', async (req, res) => {
+//     const { email, password } = req.body;
+//     UserModel.findOne({ email: email })
+//         .then(user=>{
+//             if(user){
+//                 bcrypt.compare(password, user.password)
+//                     .then(match => {
+//                         if(match){
+//                             res.json('Success');
+//                         } else {
+//                             res.json('Wrong password');
+//                         }
+//                     })
+//                     .catch(err => {
+//                         res.status(500).send('Error');
+//                     });
+//             } else {
+//                 res.json('User does not exist');
+//             }
+//         })
+//         .catch(err => {
+//             res.status(500).send('Error');
+//         });
+// });
+app.post('/logout', (req, res) => {
+        localStorage.removeItem('token');
+        res.send('Logged out successfully');
+    });
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     UserModel.findOne({ email: email })
@@ -56,7 +84,8 @@ app.post('/login', async (req, res) => {
                 bcrypt.compare(password, user.password)
                     .then(match => {
                         if(match){
-                            res.json('Success');
+                            const token = jwt.sign({ userId: user._id }, 'your_secret_key');
+                            res.json({ token });
                         } else {
                             res.json('Wrong password');
                         }

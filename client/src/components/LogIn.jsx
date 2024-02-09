@@ -7,13 +7,12 @@ export default function LogIn() {
   const [password, setPassword] = useState('');
   const navigate=useNavigate();
   
-
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost:3001/login', { email, password })
         .then((res) => {
-            console.log(res.data);
-            if (res.data === 'Success') {
+            if (res.data.token) {
+                localStorage.setItem('token', res.data.token); 
                 navigate('/home');
                 alert('Login Success');
             } else {
