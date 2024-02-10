@@ -2,7 +2,7 @@
 import React, { useState } from 'react';    
 import { Link,useNavigate} from 'react-router-dom';
 import axios from 'axios';
-import signup from '../assets/signup.jpg';
+import register from '../assets/register.jpg';
 export default function SignUp() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -10,7 +10,7 @@ export default function SignUp() {
     const navigate=useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3001/register', { name, email, password })
+        axios.post('https://server-879d.onrender.com/register', { name, email, password })
             .then((res) => {
                navigate('/login');
             })
@@ -20,18 +20,18 @@ export default function SignUp() {
       
     return (
         <div className='flex justify-center items-center h-screen bg-cover bg-no-repeat' style={{ 
-            backgroundImage: `url(${signup})`
+            backgroundImage: `url(${register})`
         }}>
           
         
             <div className="bg-white p-6 rounded-[15px] shadow-md w-96 backdrop-filter backdrop-blur-md bg-opacity-20">
-                <h2>Register</h2>
+                <h2 className='text-xl font-bold text-center '>Register</h2>
                 <form onSubmit={handleSubmit}>
                     <div className='mb-3'>
                         <label htmlFor="name">
                             <strong>Name</strong>
                         </label>
-                        <input type="text" placeholder='Name' autoComplete='off' name='name' className='w-full' onChange={(e) => setName(e.target.value)} />
+                        <input type="text" placeholder='Name' autoComplete='off' name='name' className='w-full h-full' onChange={(e) => setName(e.target.value)} />
                     </div>
                     <div className='mb-3'>
                         <label htmlFor="email">

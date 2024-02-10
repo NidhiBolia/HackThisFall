@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+  body,html {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      scrollbar-width: none;
+      margin: 0;
+      padding:0;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-    body {
-        font-family: 'Poppins', sans-serif;
-    }
+ 

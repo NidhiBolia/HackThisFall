@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import axios, { Axios } from 'axios'; 
+import axios from 'axios'; 
 import Navbar from '../components/Navbar';
 import { ReactTyped } from "react-typed";
 import { motion } from 'framer-motion';
 import { fadeIn, staggerContainer } from '../animation/motion';
+import About from '../components/About';
 import taxi from '../assets/Taxi.gif';
-
+import { Link } from 'react-router-dom';
 export default function Home() {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [numberPlate, setNumberPlate] = useState('');
@@ -17,14 +18,18 @@ export default function Home() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-   axios.post('http://localhost:3001/store-details', { numberPlate, phoneNumber })
+    axios.post('https://server-879d.onrender.com/store-details', { numberPlate, phoneNumber });
+    // Close the form after submission
+    setIsFormVisible(false);
   };
-  
-  
+
+  const handleCloseForm = () => {
+    setIsFormVisible(false);
+  };
 
   return (
     <div className='bg-black'>
-      <Navbar />
+      
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -34,9 +39,9 @@ export default function Home() {
       >
         <motion.div variants={fadeIn("left", "tween", 0.2, 1)} className='flex-1 justify-center mt-[200px]' style={{ textAlign: 'center' }}>
           <ReactTyped strings={['Nazar hati durgatna ghati', 'Apni shuraksha aapne hath']} typeSpeed={100} backSpeed={50} loop className='text-5xl pl-2 md:pl-4 text-yellow-300' />
-          <p className='text-3xl mt-[1.5rem] ml-2 text-left text-white font-thin '> Dont let drivers risk your life,Use our app and sleep peacefully,let our app alarm you and your driver for his carelessness</p>
+          <p className='text-lg  mt-[1.5rem] ml-4 text-left text-white text-balance '> Dont let drivers risk your life,Use our app and sleep peacefully,let our app alarm you and your driver for his carelessness</p>
           <button onClick={handleGetStarted} className='bg-transparent text-white  border-[#7D7FB0] border-[3px] rounded-xl py-2 mt-10  px-4'>Get Started</button>
-          <button className='bg-[#7D7FB0] text-white rounded-xl py-2 px-4 ml-6'>Learn More</button>
+          <Link to='/learn-more' className='bg-[#7D7FB0] text-white rounded-xl py-[0.75rem] px-4 ml-6'>Learn More</Link>
         </motion.div>
         <motion.div variants={fadeIn("left", "tween", 0.2, 1)} className='flex-1'>
           <img src={taxi} alt="" className='w-50 h-auto' />
@@ -56,6 +61,7 @@ export default function Home() {
               type="text"
               placeholder="Number Plate"
               name="numberPlate"
+              value={numberPlate}
               onChange={(e) => setNumberPlate(e.target.value)}
               className="block w-full border-gray-300 rounded-md mb-4 px-4 py-2"
             />
@@ -63,13 +69,16 @@ export default function Home() {
               type="number"
               placeholder="Phone Number"
               name='phoneNumber'
+              value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               className="block w-full border-gray-300 rounded-md mb-4 px-4 py-2"
             />
             <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md">Submit</button>
+            <button type="button" onClick={handleCloseForm} className="bg-gray-300 text-black px-4 py-2 rounded-md ml-4">Close</button>
           </form>
         </motion.div>
       )}
+      <About />
     </div>
   )
 }
