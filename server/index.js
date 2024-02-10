@@ -6,6 +6,7 @@ import bcrypt from 'bcrypt';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import UserModel from './model/User.js';
+import NumberSchema from './model/Number.js';
 const app = express();
 dotenv.config();
 mongoose.connect(process.env.MONGO_URL);
@@ -31,47 +32,18 @@ app.post('/register', async (req, res) => {
     });
    
 });
-// app.post('/login', async (req, res) => {
-//     const { email, password } = req.body;
-//     UserModel.findOne({ email: email })
-//         .then(user=>{
-//             if(user){
-//                 if(user.password===password){
-//                     res.json('Success');
-//                 }else{
-//                     res.json('Wrong password');
-//                 }
-//             }else{
-//                 res.json('User does not exist');
-//             }
-//         }
-        
-//         )
-// });
-// app.post('/login', async (req, res) => {
-//     const { email, password } = req.body;
-//     UserModel.findOne({ email: email })
-//         .then(user=>{
-//             if(user){
-//                 bcrypt.compare(password, user.password)
-//                     .then(match => {
-//                         if(match){
-//                             res.json('Success');
-//                         } else {
-//                             res.json('Wrong password');
-//                         }
-//                     })
-//                     .catch(err => {
-//                         res.status(500).send('Error');
-//                     });
-//             } else {
-//                 res.json('User does not exist');
-//             }
-//         })
-//         .catch(err => {
-//             res.status(500).send('Error');
-//         });
-// });
+app.post('/store-details', async (req, res) => {
+    const numberPlate = req.body.numberPlate;
+    const phoneNumber = req.body.phoneNumber;
+    const formData = new NumberSchema({ numberPlate, phoneNumber });
+    try{
+        await formData.save();
+        res.send('Data stored successfully');
+    }catch(err){
+        res.status(500).send('Error');
+    }
+});
+
 app.post('/logout', (req, res) => {
         localStorage.removeItem('token');
         res.send('Logged out successfully');
@@ -101,6 +73,7 @@ app.post('/login', async (req, res) => {
             res.status(500).send('Error');
         });
 });
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

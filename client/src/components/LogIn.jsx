@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useState } from "react";
+import axios from "axios";
 import { Link,useNavigate } from "react-router-dom";
-
+import login from '../assets/login.jpg';
 export default function LogIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,7 +23,7 @@ export default function LogIn() {
 };
   return (
     <div className='flex justify-center items-center h-screen'  style={{ 
-      background: "url('https://source.unsplash.com/1600x900/?nature,water')"
+        backgroundImage: `url(${login})`
     }}>
     <div className="bg-white p-6 rounded-[15px] shadow-md w-96 backdrop-filter backdrop-blur-md bg-opacity-20">
         <h2>LogIn</h2>

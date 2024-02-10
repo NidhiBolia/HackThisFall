@@ -2,7 +2,7 @@
 import React, { useState } from 'react';    
 import { Link,useNavigate} from 'react-router-dom';
 import axios from 'axios';
-
+import signup from '../assets/signup.jpg';
 export default function SignUp() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -19,10 +19,11 @@ export default function SignUp() {
   
       
     return (
-        <div className='flex justify-center items-center h-screen'  style={{ 
-           background: "url('https://source.unsplash.com/1600x900/?nature,water')", 
-         
-         }}>
+        <div className='flex justify-center items-center h-screen bg-cover bg-no-repeat' style={{ 
+            backgroundImage: `url(${signup})`
+        }}>
+          
+        
             <div className="bg-white p-6 rounded-[15px] shadow-md w-96 backdrop-filter backdrop-blur-md bg-opacity-20">
                 <h2>Register</h2>
                 <form onSubmit={handleSubmit}>
