@@ -1,4 +1,5 @@
-**Welcome to Wakiey - Driver Fatigue Prevention**
+                                                                    <h4>**Welcome to Wakiey - Driver Fatigue Prevention**</h4>
+  
 **Introduction**
 Wakiey is a web application designed to address the critical issue of driver fatigue, which poses a significant risk to road safety. Our application aims to detect signs of drowsiness in drivers in real-time and promptly notify relevant parties to prevent potential accidents.
 
