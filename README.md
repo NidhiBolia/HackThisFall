@@ -1,9 +1,9 @@
   **Welcome to Wakiey - Driver Fatigue Prevention**
   
-**Introduction**
+**Introduction**<br/>
 Wakiey is a web application designed to address the critical issue of driver fatigue, which poses a significant risk to road safety. Our application aims to detect signs of drowsiness in drivers in real-time and promptly notify relevant parties to prevent potential accidents.
 
-**Objective**
+**Objective**<br />
 The primary goal of Wakiey is to enhance efforts in recognizing sleepiness in drivers, a crucial factor contributing to road accidents. By leveraging machine learning algorithms and various Python libraries, Wakiey autonomously detects driver drowsiness and triggers alerts to passengers or transport service providers to mitigate the risk of accidents.
 
 **Features**
