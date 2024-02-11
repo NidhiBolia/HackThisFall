@@ -24,7 +24,7 @@ Machine learning algorithms for drowsiness detection.
 Various Python libraries for web development.
 React for frontend
 
-Deplyoed Website:-<a href="https://wikey.netlify.app/" /> </a>
+<a href="https://wikey.netlify.app/" /> Deplyoed Website</a>
 **Technologies Used**<br />
 Flask for backend development.
 Machine learning algorithms for drowsiness detection.
