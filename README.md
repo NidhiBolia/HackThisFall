@@ -6,25 +6,25 @@ Wakiey is a web application designed to address the critical issue of driver fat
 **Objective**<br />
 The primary goal of Wakiey is to enhance efforts in recognizing sleepiness in drivers, a crucial factor contributing to road accidents. By leveraging machine learning algorithms and various Python libraries, Wakiey autonomously detects driver drowsiness and triggers alerts to passengers or transport service providers to mitigate the risk of accidents.
 
-**Features**
-Real-time detection of driver drowsiness.
-Prompt notification to passengers or transport service providers.
-Utilization of machine learning models for accurate drowsiness detection.
+**Features**<br>
+Real-time detection of driver drowsiness.<br />
+Prompt notification to passengers or transport service providers.<br />
+Utilization of machine learning models for accurate drowsiness detection.<br />
 
-**Team**
-Team Name: Eenie Meenie Miney
-Team Members:
-Nidhi Bolia
-Tanvi Gupta
-Ananya Sanghavi
+**Team**<br />
+Team Name: Eenie Meenie Miney<br />
+Team Members:<br />
+Nidhi Bolia<br />
+Tanvi Gupta<br />
+Ananya Sanghavi<br />
 
-**Technologies Used**
+**Technologies Used**<br />
 Flask for backend development.
 Machine learning algorithms for drowsiness detection.
 Various Python libraries for web development.
 React for frontend
 
-**Technologies Used**
+**Technologies Used**<br />
 Flask for backend development.
 Machine learning algorithms for drowsiness detection.
 Various Python libraries for web development.
