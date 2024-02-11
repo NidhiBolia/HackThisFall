@@ -24,7 +24,7 @@ Machine learning algorithms for drowsiness detection.
 Various Python libraries for web development.
 React for frontend
 
-<a href="https://wikey.netlify.app/" /> Waikey-Driver Faatigue Prevention</a><br/>
+<a href="https://wikey.netlify.app/" /> Waikey</a><br/>
 **Technologies Used**<br />
 Flask for backend development.
 Machine learning algorithms for drowsiness detection.
